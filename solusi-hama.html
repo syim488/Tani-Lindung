@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Solusi Penanganan Hama - TaniLindung</title>
+  <link rel="stylesheet" href="periksa dan hasil.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav class="navbar">
+        <a href="index.html" class="logo">TaniLindung</a>
+        <ul class="nav-menu">
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="periksa tanaman.html">Periksa Tanaman</a></li>
+          <li><a href="katalog hama.html">Katalog Hama</a></li>
+          <li><a href="tips petani.html">Tips petani</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+
+      <div class="page-heading">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+          <span class="badge-diagnosa">Rekomendasi Medis Tanaman</span>
+          <span class="badge-accuracy" id="solusiUrgencyBadge">URGENT: TINGGI</span>
+        </div>
+        <h1 class="page-title" id="solusiPestTitle">Penanganan Hama Terdeteksi</h1>
+        <p class="page-desc">Panduan rencana penanganan terpadu berdasarkan karakteristik biologis hama yang terdeteksi.</p>
+      </div>
+
+      <div class="layout-grid">
+
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          
+          <div class="card-box">
+            <h3 class="section-title">Penyebab Utama Serangan</h3>
+            <p id="solusiCauseText" style="font-size: 13px; color: #485c50; line-height: 1.6;">
+              Menganalisis faktor pemicu serangan hama di lapangan...
+            </p>
+          </div>
+
+          <div>
+            <h3 class="section-title" style="margin-bottom: 12px;">Langkah Penanganan Bertahap</h3>
+            <div id="solusiStepsContainer" style="display: flex; flex-direction: column; gap: 14px;">
+            </div>
+          </div>
+
+        </div>
+
+        <div class="right-column">
+          
+          <div class="card-box" style="margin-bottom: 18px;">
+            <h3 class="section-title">Langkah Pencegahan Kedepan</h3>
+            <ul class="symptom-match-list" id="solusiPreventionList">
+            </ul>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <a href="katalog hama.html" class="btn-solusi" style="background: #ffffff; border: 1.5px solid #c8d8cc; color: #183624;">
+              Periksa Hama Lain
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <script src="periksa dan hasil.js"></script>
+</body>
+</html>

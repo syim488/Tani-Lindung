@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detail Hama - TaniLindung</title>
+  <link rel="stylesheet" href="katalog.css">
+</head>
+<body>
+  <header class="navbar-header">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">TaniLindung</a>
+      <nav class="nav-links">
+        <a href="index.html">Beranda</a>
+        <a href="periksa tanaman.html">Periksa Tanaman</a>
+        <a href="katalog hama.html" class="active">Katalog Hama</a>
+        <a href="tips petani.html">Tips Petani</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="detail-container">
+        <div class="detail-top-bar">
+      <nav class="breadcrumb">
+        <a href="katalog hama.html">Katalog Hama</a>
+        <span>&rsaquo;</span>
+        <span id="crumbPestName" class="crumb-current">Wereng Cokelat (Padi)</span>
+      </nav>
+      <div class="header-action-row">
+        <div>
+          <h1 id="detPestName" class="detail-title">Wereng Cokelat</h1>
+          <p id="detPestMeta" class="detail-meta">Nilaparvata lugens • Hama Utama Padi</p>
+        </div>
+        <span id="detThreatBadge" class="threat-badge">Tingkat Ancaman: Sangat Tinggi</span>
+      </div>
+    </div>
+
+    <div class="detail-grid">
+      <section class="left-col">
+        <div class="featured-media-card">
+          <img id="detPestImg" src="" alt="Foto Hama">
+          <p id="detImgCaption" class="media-caption">Foto: Koloni nimfa dan dewasa berkumpul di tajuk tanaman yang lembap.</p>
+        </div>
+
+        <div class="content-narrative-card">
+          <h2 id="detAboutTitle" class="section-title">Mengenal Wereng Cokelat</h2>
+          <div id="detLongDesc" class="narrative-body">
+          </div>
+        </div>
+      </section>
+
+      <aside class="right-col">
+        <div class="features-checklist-card">
+          <h3 class="card-side-title">Ciri-Ciri & Gejala Serangan</h3>
+          <ul id="detSymptomsList" class="checklist-items">
+          </ul>
+        </div>
+
+        <div class="cta-solution-card">
+          <h3 class="cta-title">Bagaimana Cara Membasminya?</h3>
+          <p id="detSolutionSummary" class="cta-text">TaniLindung merekomendasikan solusi bertahap menggunakan agens hayati serta perbaikan sirkulasi pertanaman.</p>
+          <a id="btnGoToSolution" href="solusi hama.html" class="cta-btn">
+            Lihat Cara Mengatasi Hama Ini <span>&rarr;</span>
+          </a>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <script src="detail hama.js"></script>
+</body>
+</html>
