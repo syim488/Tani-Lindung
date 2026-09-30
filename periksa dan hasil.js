@@ -1,5 +1,3 @@
-const GEMINI_API_KEY = "AQ.Ab8RN6LWQEi-HUSnAZzGW2WyaFCBla0Ko-pcSh_uRSR1GahBfw";
-
 document.addEventListener('DOMContentLoaded', () => {
 
    const pestDatabase = {
