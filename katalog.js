@@ -131,7 +131,7 @@ const pestDatabase = {
     latin: "Tetranychus urticae",
     tag: "Sayuran",
     cat: "sayuran",
-    img: "tungau merah.jpg",
+    img: "Tungau Merah.jpg",
     desc: "menghisap cairan sel pucuk tanaman sayuran sehingga daun berubah warna menjadi perunggu"
   },
    kutu_daun_persik: {
