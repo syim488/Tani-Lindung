@@ -158,7 +158,7 @@ const pestDatabase = {
     latin: "Plutella xylostella",
     tag: "Sayuran",
     cat: "sayuran",
-    img: "Ulat Daun Kubis.jpg",
+    img: "Ulat daun Kubis.jpg",
     desc: "larva hijau kecil pemakan epidermis daun kubis yang sangat cepat berkembang biak"
   },
   ulat_krop_kubis: {
