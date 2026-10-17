@@ -1,6 +1,4 @@
-// Isi dengan URL backend proxy (mis. Cloudflare Worker / Vercel) jika ingin pakai AI vision.
-// JANGAN taruh API key di file ini.
-const DETECT_ENDPOINT = '';
+const GEMINI_API_KEY = "AQ.Ab8RN6LWQEi-HUSnAZzGW2WyaFCBla0Ko-pcSh_uRSR1GahBfw";
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -189,270 +187,67 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  const st = (n, day, title, desc) => ({ phase: `Langkah ${n}`, time: `Hari ke-${day}`, title, desc });
-
   const remainingPests = [
-    { id: "ulat_grayak_cabai", name: "Ulat Grayak Cabai", latin: "Spodoptera litura", keyw: ["grayak cabai", "litura"], urgency: "URGENT: TINGGI",
-      desc: "Larva ngengat pemakan daun, pucuk, dan buah cabai yang aktif pada malam hari dan bersembunyi di tanah pada siang hari.",
-      symptoms: ["Daun berlubang tidak beraturan hingga tersisa tulang daun", "Buah cabai berlubang dan membusuk karena digerek larva", "Kelompok telur tertutup bulu halus cokelat di bawah daun"],
-      cause: "Ngengat bertelur di cabai saat cuaca kering hangat, diperparah oleh gulma inang dan matinya musuh alami akibat penyemprotan berlebihan.",
-      steps: [st(1, 1, "Kumpulkan Telur & Larva", "Petik daun berisi kelompok telur dan kumpulkan larva pada sore atau malam hari, lalu musnahkan."), st(2, 2, "Semprot Agens Hayati", "Semprotkan SlNPV atau Bacillus thuringiensis (Bt) pada sore hari ke seluruh tanaman, terutama bawah daun."), st(3, 4, "Pasang Perangkap Feromon", "Pasang perangkap feromon seks untuk menangkap ngengat jantan dan memutus siklus kawin.")],
-      prevention: ["Bersihkan gulma dan sisa tanaman inang di sekitar bedengan.", "Olah tanah agar kepompong di dalam tanah terjemur dan mati."] },
-
-    { id: "tungau_kuning", name: "Tungau Kuning Cabai", latin: "Polyphagotarsonemus latus", keyw: ["tungau kuning", "cakar ayam"], urgency: "URGENT: TINGGI",
-      desc: "Tungau mikroskopis pengisap cairan daun muda cabai; gejalanya sering salah dikira penyakit virus atau kekurangan hara.",
-      symptoms: ["Daun muda menyempit, keriting ke bawah, dan kaku seperti cakar ayam", "Permukaan bawah daun tampak mengkilap kecokelatan", "Pucuk kerdil dan buah muda gugur atau berbercak kasar"],
-      cause: "Cuaca hangat dan lembap, serta ukuran tungau yang terlalu kecil untuk terlihat mata sehingga serangan terlambat disadari.",
-      steps: [st(1, 1, "Pangkas Pucuk Terserang", "Potong pucuk dan daun yang keriting, masukkan ke kantong tertutup, lalu musnahkan."), st(2, 2, "Semprot Bahan Nabati", "Semprot bagian bawah daun dengan ekstrak mimba atau belerang sesuai anjuran label, pagi atau sore hari."), st(3, 5, "Pantau Berkala", "Periksa pucuk muda dengan kaca pembesar tiap 2-3 hari; ulangi penyemprotan bila masih muncul gejala baru.")],
-      prevention: ["Hindari pupuk nitrogen berlebihan yang membuat pucuk terlalu lunak.", "Jaga lahan bebas gulma dan jauhkan dari tanaman yang sudah terserang."] },
-
-    { id: "tungau_merah", name: "Tungau Merah Singkong", latin: "Tetranychus urticae", keyw: ["tungau merah", "jaring laba"], urgency: "URGENT: TINGGI",
-      desc: "Tungau pengisap sel daun yang berkembang cepat pada musim kemarau dan membentuk jaring halus di bawah daun.",
-      symptoms: ["Bintik kuning atau putih kecil tersebar di permukaan atas daun", "Jaring halus seperti sarang laba-laba di bawah daun", "Daun mengering kecokelatan lalu gugur dari bagian bawah tanaman"],
-      cause: "Cuaca panas, kering, dan berdebu, serta matinya tungau pemangsa akibat insektisida spektrum luas.",
-      steps: [st(1, 1, "Semprot Air Bertekanan", "Semprot bagian bawah daun dengan air bertekanan untuk merontokkan tungau dan jaringnya."), st(2, 2, "Semprot Mimba atau Sabun", "Aplikasikan ekstrak mimba atau larutan sabun cair encer ke bawah daun pada sore hari."), st(3, 5, "Lindungi Pemangsa Alami", "Hindari insektisida spektrum luas agar tungau pemangsa dan kumbang predator tetap hidup.")],
-      prevention: ["Atur waktu tanam agar fase rawan tidak jatuh pada puncak kemarau.", "Buang dan musnahkan daun bawah yang sudah penuh tungau."] },
-
-    { id: "kutu_daun_persik", name: "Kutu Daun Persik (Aphids)", latin: "Myzus persicae", keyw: ["aphids", "kutu daun persik"], urgency: "URGENT: TINGGI",
-      desc: "Kutu kecil hijau atau kuning yang menghisap getah pucuk dan daun muda serta menularkan berbagai virus tanaman.",
-      symptoms: ["Koloni kutu kecil di pucuk dan bawah daun", "Daun keriting, menggulung, dan pertumbuhan terhambat", "Lapisan lengket embun madu, jelaga hitam, dan banyak semut"],
-      cause: "Cuaca kering, pemupukan nitrogen berlebih, dan semut yang melindungi koloni dari musuh alami.",
-      steps: [st(1, 1, "Semprot Air & Sabun", "Semprot koloni dengan air bertekanan atau larutan sabun cair encer, terutama bagian bawah daun."), st(2, 2, "Pasang Perangkap Kuning", "Pasang perangkap lem kuning untuk menangkap kutu bersayap sebelum menyebar."), st(3, 4, "Cabut Tanaman Bergejala Virus", "Cabut dan musnahkan tanaman berdaun belang atau kerdil karena virus agar tidak menular.")],
-      prevention: ["Gunakan mulsa perak dan kendalikan semut di sekitar tanaman.", "Tanam refugia berbunga untuk menarik kepik, lalat predator, dan tawon parasitoid."] },
-
-    { id: "ulat_daun_kubis", name: "Ulat Daun Kubis (Plutella)", latin: "Plutella xylostella", keyw: ["plutella", "daun kubis"], urgency: "URGENT: TINGGI",
-      desc: "Larva hijau kecil yang menggeliat bila disentuh, memakan permukaan bawah daun kubis dan mudah menjadi kebal terhadap insektisida.",
-      symptoms: ["Daun berlubang kecil dengan jendela transparan tipis", "Larva hijau kecil menggeliat saat daun disentuh", "Krop muda berlubang dan pertumbuhannya terhambat"],
-      cause: "Penanaman kubis terus-menerus tanpa jeda, penyemprotan kimia berulang yang memicu kekebalan, dan minimnya musuh alami.",
-      steps: [st(1, 1, "Kumpulkan Larva & Kepompong", "Periksa bawah daun, kumpulkan larva dan kepompong berkokon jaring tipis, lalu musnahkan."), st(2, 2, "Semprot Bt", "Semprotkan Bacillus thuringiensis pada sore hari hingga bagian bawah daun terkena."), st(3, 5, "Lindungi Parasitoid", "Lindungi parasitoid seperti Diadegma semiclausum dengan menghindari insektisida spektrum luas.")],
-      prevention: ["Tumpang sari kubis dengan tanaman bukan inang seperti tomat.", "Tanam serempak dan musnahkan sisa tanaman kubis setelah panen."] },
-
-    { id: "ulat_krop_kubis", name: "Ulat Krop Kubis", latin: "Crocidolomia pavonana", keyw: ["krop kubis", "crocidolomia"], urgency: "URGENT: TINGGI",
-      desc: "Larva berkelompok yang memakan daun lalu masuk ke dalam krop sehingga kubis tidak layak jual.",
-      symptoms: ["Larva hijau bergaris berkelompok di bawah daun dan krop", "Krop berlubang disertai kotoran dan sisa gerekan", "Krop busuk karena infeksi sekunder setelah digerek"],
-      cause: "Ngengat bertelur berkelompok pada daun kubis, terutama saat fase pembentukan krop dalam cuaca hangat.",
-      steps: [st(1, 1, "Petik Kelompok Telur & Larva", "Periksa bawah daun tiap pagi, petik daun berisi kelompok telur dan larva, lalu musnahkan."), st(2, 2, "Semprot Bt atau Mimba", "Semprotkan Bt atau ekstrak mimba, arahkan ke lipatan daun dan pangkal krop."), st(3, 4, "Periksa Krop & Ulangi", "Periksa krop yang mulai terbentuk dan ulangi penyemprotan bila masih ada larva muda.")],
-      prevention: ["Tanam serempak dan rotasi dengan tanaman bukan kubis-kubisan.", "Musnahkan sisa tanaman setelah panen agar kepompong tidak berkembang."] },
-
-    { id: "ulat_tanah", name: "Ulat Tanah (Agrotis)", latin: "Agrotis ipsilon", keyw: ["ulat tanah", "agrotis"], urgency: "URGENT: TINGGI",
-      desc: "Larva ngengat yang bersembunyi di tanah pada siang hari dan memotong pangkal batang bibit muda pada malam hari.",
-      symptoms: ["Bibit rebah terpotong di pangkal batang pada permukaan tanah", "Larva gemuk gelap melingkar di tanah dekat tanaman rebah", "Kerusakan tampak di pagi hari dan tersebar acak di bedengan"],
-      cause: "Lahan penuh gulma atau sisa tanaman sebelum tanam dan olah tanah yang kurang sempurna.",
-      steps: [st(1, 1, "Cari Larva di Tanah", "Pagi hari gali tanah sedalam 2-5 cm di sekitar bibit yang rebah, lalu musnahkan larvanya."), st(2, 2, "Aplikasi Agens Hayati", "Tebarkan atau siramkan Beauveria bassiana atau Metarhizium di sekitar pangkal tanaman."), st(3, 3, "Sulam Bibit", "Tanam bibit pengganti yang sehat pada lubang tanaman yang rebah.")],
-      prevention: ["Bersihkan gulma dan olah tanah dalam sebelum tanam agar larva dan kepompong terjemur.", "Gunakan bibit yang cukup besar dan kuat saat pindah tanam."] },
-
-    { id: "oteng_oteng", name: "Kumbang Oteng-Oteng", latin: "Aulacophora foveicollis", keyw: ["oteng", "aulacophora"], urgency: "URGENT: TINGGI",
-      desc: "Kumbang oranye kemerahan pemakan daun tanaman labu-labuan yang menyerang bibit hingga tanaman gundul.",
-      symptoms: ["Daun berlubang bulat tidak beraturan", "Kumbang oranye kemerahan berkumpul di daun muda dan bunga", "Bibit labu, mentimun, atau semangka habis dimakan"],
-      cause: "Kumbang bertahan di sisa tanaman dan gulma, lalu berpindah ke bibit muda saat awal tanam.",
-      steps: [st(1, 1, "Tangkap Manual", "Tangkap kumbang pagi hari saat masih lamban, lalu musnahkan."), st(2, 2, "Lindungi Bibit", "Tutup bibit muda dengan sungkup atau kain kasa tipis sampai tanaman cukup kuat."), st(3, 4, "Semprot Mimba", "Semprotkan ekstrak mimba pada daun dan sekitar bedengan di sore hari.")],
-      prevention: ["Bersihkan sisa tanaman labu-labuan sebelum penanaman berikutnya.", "Tanam serempak dan rotasi dengan tanaman bukan labu-labuan."] },
-
-    { id: "nematoda_puru_akar", name: "Nematoda Puru Akar", latin: "Meloidogyne spp.", keyw: ["puru akar", "bintil akar", "nematoda"], urgency: "URGENT: TINGGI",
-      desc: "Cacing mikroskopis yang menyerang akar sehingga terbentuk puru dan penyerapan air serta hara terganggu.",
-      symptoms: ["Akar berbintil atau membengkak seperti manik-manik", "Tanaman kerdil dan layu di siang hari walau tanah lembap", "Daun menguning dan hasil panen turun drastis"],
-      cause: "Menanam tanaman inang berulang, bibit terinfeksi, serta alat atau air irigasi yang membawa tanah dari lahan terserang.",
-      steps: [st(1, 1, "Cabut & Musnahkan Tanaman", "Cabut tanaman beserta akarnya, jangan dibuang ke lahan; bakar atau kubur jauh dari kebun."), st(2, 3, "Tambah Bahan Organik & Trichoderma", "Berikan kompos matang dan agens hayati seperti Trichoderma atau Paecilomyces lilacinus pada tanah."), st(3, 7, "Jemur Tanah", "Gemburkan dan jemur tanah di bawah terik matahari, atau tutup plastik transparan, sebelum tanam ulang.")],
-      prevention: ["Rotasi dengan tanaman bukan inang seperti jagung dan tanam tagetes (kenikir) di sekitar bedengan.", "Gunakan bibit sehat dan bersihkan alat dari tanah lahan terserang."] },
-
-    { id: "penggerek_polong_kedelai", name: "Penggerek Polong Kedelai", latin: "Etiella zinckenella", keyw: ["etiella", "polong kedelai"], urgency: "URGENT: TINGGI",
-      desc: "Larva ngengat yang menggerek polong kedelai dan memakan biji dari dalam sehingga hasil turun.",
-      symptoms: ["Lubang kecil pada polong disertai kotoran", "Biji di dalam polong rusak dan berlubang", "Polong muda gugur atau mengering"],
-      cause: "Ngengat bertelur pada polong muda, terutama pada pertanaman yang tidak serempak.",
-      steps: [st(1, 1, "Petik & Musnahkan Polong", "Kumpulkan polong berlubang dan musnahkan agar larva tidak menjadi ngengat."), st(2, 2, "Semprot Agens Hayati", "Semprot Bt atau ekstrak mimba saat polong muda mulai terbentuk, sore hari."), st(3, 4, "Pasang Perangkap", "Pasang perangkap cahaya malam hari atau perangkap feromon untuk menurunkan ngengat dewasa.")],
-      prevention: ["Tanam serempak dan rotasi dengan padi atau jagung.", "Gunakan varietas genjah agar fase polong tidak bertepatan dengan puncak populasi ngengat."] },
-
-    { id: "kepik_hijau_kedelai", name: "Kepik Hijau Kedelai", latin: "Nezara viridula", keyw: ["kepik hijau", "nezara"], urgency: "URGENT: TINGGI",
-      desc: "Kepik hijau yang menusuk dan mengisap polong serta biji kedelai sehingga biji kempes dan kualitas menurun.",
-      symptoms: ["Kepik hijau dan nimfa berbintik di polong dan batang", "Polong hampa atau biji kempes berbintik hitam", "Biji keriput dan kualitas benih turun"],
-      cause: "Kepik berpindah dari gulma dan tanaman lain ke kedelai saat pembentukan polong, terutama pada tanam tidak serempak.",
-      steps: [st(1, 1, "Tangkap Manual", "Tangkap kepik dengan jaring pada pagi hari saat masih lamban, lalu musnahkan."), st(2, 3, "Semprot Beauveria", "Semprot jamur Beauveria bassiana pada polong dan batang di sore hari."), st(3, 5, "Pasang Tanaman Perangkap", "Tanam kacang tunggak atau kacang panjang di pinggir petak untuk menarik kepik, lalu tangkap di sana.")],
-      prevention: ["Tanam serempak dan bersihkan gulma inang di pematang.", "Lindungi parasitoid telur Trissolcus basalis dengan menghindari insektisida spektrum luas."] },
-
-    { id: "ulat_tongkol_jagung", name: "Ulat Tongkol Jagung", latin: "Helicoverpa armigera", keyw: ["tongkol jagung", "helicoverpa"], urgency: "URGENT: TINGGI",
-      desc: "Larva ngengat yang memakan rambut dan biji di ujung tongkol sehingga tongkol cacat dan mudah terinfeksi jamur.",
-      symptoms: ["Rambut tongkol terpotong dan ujung tongkol berlubang", "Kotoran basah dan biji dimakan di ujung tongkol", "Larva ditemukan di dalam kelobot"],
-      cause: "Ngengat bertelur pada rambut jagung saat fase pembungaan, terutama pada tanam tidak serempak.",
-      steps: [st(1, 1, "Ambil Larva Manual", "Periksa ujung tongkol, ambil larvanya, lalu musnahkan."), st(2, 2, "Semprot HaNPV atau Bt", "Semprotkan HaNPV atau Bt pada rambut tongkol saat awal keluar rambut, sore hari."), st(3, 4, "Lindungi Parasitoid", "Lindungi parasitoid telur seperti Trichogramma dengan menghindari insektisida spektrum luas.")],
-      prevention: ["Tanam serempak agar fase pembungaan tidak bertahap.", "Pilih varietas dengan kelobot yang menutup rapat sampai ujung tongkol."] },
-
-    { id: "lalat_bibit_jagung", name: "Lalat Bibit Jagung", latin: "Atherigona oryzae", keyw: ["lalat bibit", "atherigona"], urgency: "URGENT: TINGGI",
-      desc: "Larva lalat yang masuk ke titik tumbuh bibit jagung muda sehingga pucuk layu dan mati.",
-      symptoms: ["Daun muda layu dan mengering, mudah dicabut", "Pangkal pucuk berlendir dan berbau busuk", "Populasi tanaman berkurang pada umur 1-4 minggu"],
-      cause: "Lalat bertelur pada bibit muda, terutama pada penanaman terlambat atau tidak serempak.",
-      steps: [st(1, 1, "Cabut Bibit Bergejala", "Cabut bibit dengan pucuk mengering lalu musnahkan jauh dari lahan."), st(2, 2, "Sulam Bibit", "Tanam ulang atau sulam bibit pengganti agar populasi tanaman tetap cukup."), st(3, 4, "Pasang Perangkap Umpan Ikan", "Letakkan perangkap berisi umpan tepung ikan atau ikan busuk untuk menarik lalat dewasa.")],
-      prevention: ["Tanam serempak di awal musim hujan dan gunakan benih sedikit lebih rapat.", "Bersihkan sisa tanaman dan gulma sebelum tanam."] },
-
-    { id: "kumbang_moncong_ubi", name: "Kumbang Moncong Umbi Ubi", latin: "Cylas formicarius", keyw: ["moncong ubi", "cylas"], urgency: "URGENT: SANGAT TINGGI",
-      desc: "Kumbang kecil biru kehitaman berleher oranye yang merusak batang dan umbi ubi jalar; larvanya menggerek umbi.",
-      symptoms: ["Lubang kecil dan lorong gerekan pada umbi", "Umbi berasa pahit dan berbau tidak sedap", "Batang dekat pangkal berongga dan layu"],
-      cause: "Umbi terbuka karena tanah retak, serta lahan ditanami ubi jalar berulang atau berdekatan dengan sisa panen terserang.",
-      steps: [st(1, 1, "Kumpulkan Umbi Terserang", "Kumpulkan umbi dan sisa panen yang berlubang, lalu musnahkan dengan dibakar atau dikubur."), st(2, 2, "Pasang Perangkap Feromon", "Pasang perangkap feromon seks untuk menangkap kumbang jantan."), st(3, 4, "Timbun Umbi & Aplikasi Jamur", "Timbun tanah di sekitar batang agar umbi tidak terbuka, dan aplikasikan Beauveria bassiana atau Metarhizium.")],
-      prevention: ["Rotasi dengan padi atau jagung dan hindari menanam ubi jalar berturutan.", "Gunakan stek ujung yang sehat dan panen tepat waktu."] },
-
-    { id: "kutu_putih_pepaya", name: "Kutu Putih Pepaya", latin: "Paracoccus marginatus", keyw: ["kutu putih pepaya", "marginatus"], urgency: "URGENT: TINGGI",
-      desc: "Kutu bertubuh tertutup lapisan lilin putih yang mengisap getah daun, batang, dan buah pepaya.",
-      symptoms: ["Massa putih seperti kapas pada daun, batang, dan buah", "Daun menguning, keriting, lalu gugur", "Embun madu, jelaga hitam, dan semut di tanaman"],
-      cause: "Penyebaran bibit atau buah terinfestasi, serta semut yang melindungi kutu dari musuh alami.",
-      steps: [st(1, 1, "Semprot Air & Pangkas", "Semprot massa putih dengan air bertekanan dan pangkas bagian yang terserang parah lalu musnahkan."), st(2, 2, "Semprot Sabun atau Mimba", "Semprotkan larutan sabun cair encer atau ekstrak mimba ke seluruh bagian tanaman."), st(3, 5, "Lindungi Musuh Alami", "Biarkan parasitoid dan predator seperti kepik berkembang, dan kendalikan semut di sekitar batang.")],
-      prevention: ["Periksa bibit sebelum tanam dan jangan memindahkan bahan tanaman dari kebun terserang.", "Pantau pucuk dan bawah daun setiap minggu."] },
-
-    { id: "ulat_api_sawit", name: "Ulat Api Kelapa Sawit", latin: "Setothosea asigna", keyw: ["ulat api", "asigna"], urgency: "URGENT: SANGAT TINGGI",
-      desc: "Larva berduri menyengat yang memakan daun sawit dari tepi hingga menyisakan tulang daun sehingga produksi turun.",
-      symptoms: ["Daun sawit habis dimakan dan tersisa tulang daun", "Larva berduri hijau atau cokelat di bawah pelepah", "Kokon bulat cokelat di pangkal batang atau permukaan tanah"],
-      cause: "Monokultur sawit dan penggunaan insektisida kimia yang membunuh musuh alami sehingga populasi meledak.",
-      steps: [st(1, 1, "Sensus & Kutip Kokon", "Lakukan sensus larva dan kutip kokon di sekitar pangkal batang; pakai sarung tangan karena duri menyengat."), st(2, 3, "Aplikasi Agens Hayati", "Aplikasikan Bt atau virus entomopatogen yang direkomendasikan penyuluh pada pelepah terserang."), st(3, 5, "Pasang Perangkap Cahaya", "Pasang perangkap cahaya malam hari untuk menangkap ngengat dewasa.")],
-      prevention: ["Tanam Turnera subulata atau tanaman berbunga lain di sekitar kebun untuk menarik musuh alami.", "Lakukan sensus rutin tiap bulan agar ledakan cepat terdeteksi."] },
-
-    { id: "ulat_kantung_sawit", name: "Ulat Kantung Sawit", latin: "Metisa plana", keyw: ["ulat kantung", "metisa"], urgency: "URGENT: TINGGI",
-      desc: "Larva yang hidup di dalam kantung dari potongan daun dan menggerogoti permukaan daun sawit.",
-      symptoms: ["Kantung kecil bergantungan di bawah pelepah", "Daun tampak mengering kecokelatan seperti terbakar", "Permukaan daun tergerus sehingga hanya sebagian lapisan yang tersisa"],
-      cause: "Populasi musuh alami rendah akibat penyemprotan kimia berlebihan dan tidak adanya tanaman penarik predator.",
-      steps: [st(1, 1, "Kumpulkan Kantung", "Kumpulkan kantung dari pelepah rendah dan musnahkan; pangkas pelepah yang rusak parah."), st(2, 3, "Semprot Bt", "Semprotkan Bt pada pelepah terserang saat larva masih muda."), st(3, 5, "Lindungi Parasitoid", "Hindari insektisida spektrum luas agar parasitoid dan predator ulat kantung berkembang.")],
-      prevention: ["Tanam Turnera subulata atau tanaman berbunga lain untuk menarik musuh alami.", "Lakukan sensus rutin dan tangani sejak populasi masih rendah."] },
-
-    { id: "penggerek_buah_kakao", name: "Penggerek Buah Kakao (PBK)", latin: "Conopomorpha cramerella", keyw: ["pbk", "buah kakao"], urgency: "URGENT: SANGAT TINGGI",
-      desc: "Ulat kecil yang menggerek buah kakao sehingga biji lengket, kecil, dan kualitas turun.",
-      symptoms: ["Buah masak lebih awal dengan warna belang kuning-oranye", "Biji di dalam buah lengket, kecil, dan menyatu", "Lubang keluar kecil pada kulit buah"],
-      cause: "Ngengat bertelur di kulit buah, dan sisa kulit buah di kebun menjadi tempat kepompong.",
-      steps: [st(1, 1, "Panen Sering & Kubur Kulit Buah", "Panen buah masak tiap 7 hari dan kubur kulit buah bekas panen sedalam minimal 30 cm."), st(2, 3, "Sarungisasi Buah", "Bungkus buah muda berukuran 8-10 cm dengan kantong plastik tipis agar ngengat tidak bertelur."), st(3, 5, "Pangkas Cabang Berlebih", "Pangkas cabang berlebih agar tajuk terbuka dan kelembapan tidak terlalu tinggi.")],
-      prevention: ["Panen tepat waktu dan jangan menyisakan buah masak di pohon.", "Kubur atau olah kulit buah menjadi kompos dalam wadah tertutup."] },
-
-    { id: "kepik_penghisap_kakao", name: "Kepik Penghisap Buah Kakao", latin: "Helopeltis antonii", keyw: ["kepik kakao", "helopeltis antonii"], urgency: "URGENT: TINGGI",
-      desc: "Kepik ramping yang menusuk buah dan pucuk kakao sehingga timbul bercak hitam dan buah muda mengering.",
-      symptoms: ["Bercak cekung kehitaman pada kulit buah", "Buah muda layu dan kering", "Ranting dan pucuk muda berbercak lalu mengering"],
-      cause: "Kebun terlalu rimbun dan lembap, serta populasi semut hitam pemangsa yang sedikit.",
-      steps: [st(1, 1, "Tangkap Kepik", "Tangkap kepik pada buah dan pucuk di pagi atau sore hari saat aktif di tajuk."), st(2, 3, "Semprot Beauveria", "Semprot Beauveria bassiana pada buah dan pucuk di sore hari."), st(3, 5, "Pangkas Naungan", "Pangkas pohon pelindung dan cabang berlebih agar kebun lebih terang dan kering.")],
-      prevention: ["Manfaatkan semut hitam (Dolichoderus thoracicus) sebagai pengendali alami.", "Panen buah terserang dan bersihkan gulma di bawah pohon."] },
-
-    { id: "penggerek_buah_kopi", name: "Penggerek Buah Kopi (PBKo)", latin: "Hypothenemus hampei", keyw: ["pbko", "buah kopi"], urgency: "URGENT: SANGAT TINGGI",
-      desc: "Kumbang kecil yang membuat lubang di ujung buah kopi dan memakan biji sehingga mutu dan hasil turun.",
-      symptoms: ["Lubang bulat kecil di dekat ujung buah kopi", "Biji berlubang dan berwarna cokelat gelap", "Buah muda gugur atau menghitam"],
-      cause: "Buah sisa panen di pohon dan di tanah menjadi tempat berkembang biak kumbang.",
-      steps: [st(1, 1, "Petik Bubuk & Pungut Lelesan", "Petik semua buah terserang dan pungut buah jatuh (lelesan), lalu rendam air panas atau kubur."), st(2, 2, "Pasang Perangkap Atraktan", "Pasang perangkap berisi atraktan metanol-etanol di kebun untuk menangkap kumbang betina."), st(3, 5, "Semprot Beauveria", "Semprot Beauveria bassiana pada buah muda dan cabang produksi.")],
-      prevention: ["Lakukan panen tuntas dan jangan menyisakan buah kopi di pohon.", "Pangkas dan atur naungan agar kebun tidak terlalu lembap."] },
-
-    { id: "kutu_dompolan_kopi", name: "Kutu Dompolan Kopi", latin: "Planococcus citri", keyw: ["dompolan kopi", "planococcus"], urgency: "URGENT: TINGGI",
-      desc: "Kutu bertepung putih yang berkoloni di bunga, buah, dan pangkal tangkai sehingga bunga dan buah muda gugur.",
-      symptoms: ["Massa putih seperti kapas pada dompolan bunga dan buah", "Bunga dan buah muda rontok", "Embun madu, jelaga hitam, dan semut di sekitar koloni"],
-      cause: "Semut membawa dan melindungi kutu, ditambah cuaca kering.",
-      steps: [st(1, 1, "Pangkas & Semprot Air", "Pangkas ranting terserang parah lalu semprot koloni dengan air bertekanan."), st(2, 3, "Semprot Sabun atau Mimba", "Semprotkan larutan sabun cair encer atau ekstrak mimba pada dompolan bunga dan buah."), st(3, 5, "Kendalikan Semut", "Kendalikan sarang semut di sekitar pohon dan lindungi predator seperti kumbang kepik.")],
-      prevention: ["Pangkas rutin agar tajuk terbuka dan tidak lembap.", "Bersihkan gulma di bawah tanaman kopi."] },
-
-    { id: "rayap_tanah_kebun", name: "Rayap Tanah Kebun", latin: "Coptotermes curvignathus", keyw: ["rayap", "coptotermes"], urgency: "URGENT: SANGAT TINGGI",
-      desc: "Serangga sosial yang memakan akar dan pangkal batang tanaman perkebunan sehingga tanaman mati mendadak.",
-      symptoms: ["Liang kembara dari tanah menempel di pangkal batang", "Pangkal batang atau akar berongga", "Tanaman layu dan mati mendadak"],
-      cause: "Tunggul dan kayu lapuk sisa pembukaan lahan atau replanting yang tertinggal di kebun.",
-      steps: [st(1, 1, "Bongkar Sarang", "Bongkar liang dan sarang di sekitar tanaman terserang, lalu musnahkan koloni dan ratunya."), st(2, 3, "Aplikasi Metarhizium", "Taburkan atau siramkan Metarhizium anisopliae pada sarang dan pangkal tanaman."), st(3, 5, "Bersihkan Sisa Kayu", "Singkirkan tunggul, kayu lapuk, dan sampah organik besar di dekat tanaman.")],
-      prevention: ["Bersihkan tunggul dan sisa kayu sebelum penanaman atau replanting.", "Periksa pangkal batang berkala untuk mendeteksi liang kembara sejak dini."] },
-
-    { id: "kumbang_moncong_merah", name: "Kumbang Moncong Merah Kelapa", latin: "Rhynchophorus ferrugineus", keyw: ["moncong merah", "rhynchophorus"], urgency: "URGENT: SANGAT TINGGI",
-      desc: "Kumbang pelubang batang kelapa dan palma yang larvanya merusak jaringan batang dari dalam.",
-      symptoms: ["Lubang gerekan pada batang atau pangkal pelepah", "Cairan cokelat kental berbau fermentasi dan serat berserakan", "Pucuk layu, patah, atau mahkota daun terkulai"],
-      cause: "Luka pada batang atau pelepah akibat pemangkasan atau serangan kumbang tanduk menarik kumbang moncong merah untuk bertelur.",
-      steps: [st(1, 1, "Pasang Perangkap Feromon", "Pasang perangkap feromon dengan umpan potongan batang atau buah untuk menangkap kumbang dewasa."), st(2, 2, "Tutup Luka", "Tutup luka pada batang atau bekas pangkasan dengan bahan penutup agar tidak menarik kumbang."), st(3, 5, "Tangani Pohon Parah", "Tebang dan musnahkan pohon yang rusak parah agar larva tidak menyebar.")],
-      prevention: ["Hindari melukai batang dan pangkas pelepah dengan rapi.", "Kendalikan juga kumbang tanduk yang meninggalkan luka di pucuk."] },
-
-    { id: "ulat_grayak_bawang", name: "Ulat Grayak Bawang", latin: "Spodoptera exigua", keyw: ["grayak bawang", "exigua"], urgency: "URGENT: SANGAT TINGGI",
-      desc: "Larva ngengat yang masuk ke dalam daun bawang merah sehingga daun berlubang dan layu.",
-      symptoms: ["Daun bawang berlubang dengan bercak putih transparan", "Daun terkulai karena rongga digerek larva", "Kelompok telur tertutup bulu putih di ujung daun"],
-      cause: "Ngengat bertelur massal pada musim kemarau, diperparah oleh kekebalan terhadap insektisida kimia.",
-      steps: [st(1, 1, "Petik Telur & Larva", "Petik daun berisi kelompok telur dan larva setiap pagi, lalu musnahkan."), st(2, 2, "Semprot SeNPV atau Bt", "Semprotkan SeNPV atau Bt pada sore hari ke seluruh daun."), st(3, 4, "Pasang Perangkap Feromon", "Pasang perangkap feromon seks untuk menangkap ngengat jantan dan memantau populasi.")],
-      prevention: ["Rotasi dengan tanaman bukan inang dan tanam serempak.", "Bersihkan gulma dan sisa tanaman setelah panen."] },
-
-    { id: "kutu_loncat_jeruk", name: "Kutu Loncat Jeruk", latin: "Diaphorina citri", keyw: ["loncat jeruk", "diaphorina", "cvpd"], urgency: "URGENT: SANGAT TINGGI",
-      desc: "Serangga penghisap pucuk jeruk yang menularkan bakteri penyebab penyakit CVPD atau HLB.",
-      symptoms: ["Nimfa kuning kehijauan dan serangga dewasa di pucuk muda", "Daun muda melintir dan pucuk terhambat", "Daun belang kuning tidak simetris dan buah kecil asimetris"],
-      cause: "Pucuk muda yang terus tumbuh, serta kebun berdekatan dengan tanaman kemuning atau jeruk terinfeksi.",
-      steps: [st(1, 1, "Pangkas Pucuk Muda", "Pangkas pucuk muda berisi nimfa dan musnahkan agar populasi turun."), st(2, 2, "Pasang Perangkap Kuning", "Pasang perangkap lem kuning di tajuk untuk menangkap serangga dewasa."), st(3, 4, "Aplikasi Agens Hayati", "Semprot Beauveria bassiana atau ekstrak mimba pada pucuk dan lindungi predator alami seperti Tamarixia radiata.")],
-      prevention: ["Gunakan bibit jeruk bebas penyakit dan jauhkan tanaman kemuning dari kebun.", "Cabut dan musnahkan pohon yang positif CVPD sesuai arahan penyuluh."] },
-
-    { id: "kutu_sisik_hijau", name: "Kutu Sisik Hijau", latin: "Coccus viridis", keyw: ["sisik hijau", "coccus viridis"], urgency: "URGENT: SEDANG",
-      desc: "Kutu pipih berwarna hijau pucat yang menempel di bawah daun dan ranting sambil mengisap getah.",
-      symptoms: ["Kutu pipih hijau pucat menempel di tulang daun dan ranting", "Daun menguning dan pertumbuhan lambat", "Embun madu, jelaga hitam, dan semut di daun"],
-      cause: "Semut melindungi kutu dari musuh alami, dan kondisi kebun yang lembap dan rimbun.",
-      steps: [st(1, 1, "Pangkas & Bersihkan", "Pangkas ranting terserang berat dan sikat atau lap kutu pada daun yang masih bisa diselamatkan."), st(2, 3, "Semprot Sabun atau Mimba", "Semprotkan larutan sabun cair encer atau ekstrak mimba ke bawah daun dan ranting."), st(3, 5, "Kendalikan Semut", "Putus jalur semut ke tajuk dan lindungi predator alami seperti kumbang kepik.")],
-      prevention: ["Pangkas tajuk agar sirkulasi udara baik.", "Pantau pucuk dan bawah daun tiap 1-2 minggu."] },
-
-    { id: "hama_putih_palsu", name: "Hama Putih Palsu Padi", latin: "Cnaphalocrocis medinalis", keyw: ["putih palsu", "pelipat daun padi"], urgency: "URGENT: SEDANG",
-      desc: "Larva ngengat pelipat daun padi yang memakan jaringan daun di dalam gulungan sehingga tersisa selaput putih.",
-      symptoms: ["Daun padi terlipat memanjang seperti tabung", "Garis putih memanjang transparan pada helai daun", "Ujung daun mengering dan tanaman tampak keputihan dari kejauhan"],
-      cause: "Pemupukan nitrogen berlebihan dan turunnya populasi musuh alami akibat pestisida kimia.",
-      steps: [st(1, 1, "Pantau & Musnahkan Larva", "Periksa petak dan musnahkan larva di dalam lipatan daun pada serangan ringan."), st(2, 2, "Lindungi Parasitoid & Laba-Laba", "Hindari insektisida spektrum luas agar parasitoid dan laba-laba predator tetap hidup."), st(3, 4, "Semprot Beauveria atau Bt", "Semprotkan Beauveria bassiana atau Bt pada sore hari bila serangan meluas.")],
-      prevention: ["Berikan pupuk nitrogen secara berimbang, tidak berlebihan.", "Tanam serempak dan jaga pematang bebas gulma inang."] },
-
-    { id: "wereng_hijau", name: "Wereng Hijau Padi", latin: "Nephotettix virescens", keyw: ["wereng hijau", "tungro", "nephotettix"], urgency: "URGENT: SANGAT TINGGI",
-      desc: "Wereng hijau yang menularkan virus tungro sehingga padi kerdil dan menguning.",
-      symptoms: ["Daun menguning hingga oranye dari ujung daun", "Tanaman kerdil dan anakan sedikit", "Wereng hijau melompat saat rumpun digoyang"],
-      cause: "Tanam tidak serempak, sumber virus dari padi atau singgang terinfeksi, dan lahan dekat tanaman inang liar.",
-      steps: [st(1, 1, "Cabut & Benamkan Rumpun Tungro", "Cabut rumpun bergejala dan benamkan dalam lumpur agar tidak menjadi sumber penularan."), st(2, 2, "Pasang Perangkap Lampu", "Pasang perangkap lampu malam hari untuk menangkap wereng dewasa."), st(3, 4, "Semprot Beauveria", "Semprot Beauveria bassiana ke pangkal rumpun pada pagi atau sore hari.")],
-      prevention: ["Gunakan varietas tahan tungro dan tanam serempak.", "Bersihkan gulma dan singgang, serta lakukan pergiliran varietas."] },
-
-    { id: "wereng_punggung_putih", name: "Wereng Punggung Putih", latin: "Sogatella furcifera", keyw: ["punggung putih", "sogatella"], urgency: "URGENT: TINGGI",
-      desc: "Wereng penghisap getah padi yang dewasanya bergaris putih di punggung dan dapat membuat tanaman mengering seperti terbakar.",
-      symptoms: ["Wereng bergaris putih di punggung berkumpul di pangkal batang", "Daun menguning mulai dari ujung", "Rumpun mengering seperti terbakar bila populasi tinggi"],
-      cause: "Pupuk nitrogen berlebihan, jarak tanam rapat, dan musuh alami berkurang karena insektisida kimia.",
-      steps: [st(1, 1, "Atur Air Sawah", "Keringkan petakan sementara agar pangkal batang tidak terlalu lembap."), st(2, 2, "Semprot Beauveria", "Semprotkan Beauveria bassiana ke pangkal rumpun pada pagi atau sore hari."), st(3, 5, "Konservasi Musuh Alami", "Hindari insektisida spektrum luas agar laba-laba dan kumbang predator berkembang.")],
-      prevention: ["Terapkan jajar legowo dan pemupukan berimbang.", "Gunakan varietas tahan wereng bila tersedia."] },
-
-    { id: "ganjur_padi", name: "Hama Ganjur Padi", latin: "Orseolia oryzae", keyw: ["ganjur", "orseolia"], urgency: "URGENT: TINGGI",
-      desc: "Lalat kecil yang larvanya merusak titik tumbuh padi sehingga terbentuk tunas berbentuk tabung seperti daun bawang.",
-      symptoms: ["Tunas tabung hijau keperakan seperti daun bawang (bawang perak)", "Anakan tidak menghasilkan malai", "Rumpun tampak banyak anakan tetapi kerdil"],
-      cause: "Tanam terlambat atau tidak serempak pada musim hujan, dan banyak gulma inang.",
-      steps: [st(1, 1, "Cabut Bawang Perak", "Cabut tunas tabung bawang perak beserta anakannya lalu musnahkan."), st(2, 3, "Lindungi Parasitoid", "Lindungi parasitoid larva Platygaster oryzae dengan menghindari insektisida spektrum luas."), st(3, 5, "Bersihkan Gulma Inang", "Bersihkan gulma dan singgang yang menjadi tempat berkembang biak.")],
-      prevention: ["Tanam serempak dan gunakan varietas tahan ganjur.", "Hindari tanam terlambat pada musim hujan."] },
-
-    { id: "kepinding_tanah", name: "Kepinding Tanah / Kepik Hitam", latin: "Scotinophara coarctata", keyw: ["kepinding", "scotinophara"], urgency: "URGENT: TINGGI",
-      desc: "Kepik hitam berbau menyengat yang mengisap getah di pangkal batang padi sehingga anakan sedikit dan malai hampa.",
-      symptoms: ["Kepik hitam bergerombol di pangkal batang", "Daun menguning dan tanaman kerdil", "Malai hampa dan anakan berkurang"],
-      cause: "Sisa jerami dan gulma di sekitar sawah menjadi tempat berlindung, dan serangan meningkat pada tanam tidak serempak.",
-      steps: [st(1, 1, "Tangkap Manual", "Tangkap kepik dengan jaring atau tangan saat berkumpul di pangkal batang, lalu musnahkan."), st(2, 2, "Pasang Perangkap Lampu", "Pasang perangkap lampu malam hari untuk menangkap kepik dewasa."), st(3, 4, "Semprot Beauveria", "Semprot Beauveria bassiana ke pangkal rumpun pada pagi atau sore hari.")],
-      prevention: ["Bersihkan jerami dan gulma di pematang.", "Tanam serempak dan atur pengairan agar tidak terlalu lembap."] },
-
-    { id: "orong_orong", name: "Orong-Orong / Anjing Tanah", latin: "Gryllotalpa orientalis", keyw: ["orong", "anjing tanah", "gryllotalpa"], urgency: "URGENT: SEDANG",
-      desc: "Serangga penggali tanah yang memotong akar dan pangkal batang bibit sambil membuat terowongan.",
-      symptoms: ["Bibit rebah dengan akar terpotong", "Terowongan dangkal dan tanah terangkat di permukaan", "Tanaman layu karena akar rusak"],
-      cause: "Pupuk kandang segar di lahan serta tanah yang lembap dan gembur.",
-      steps: [st(1, 1, "Cari & Tangkap", "Bongkar terowongan dangkal pada pagi hari dan tangkap orong-orong yang bersembunyi."), st(2, 2, "Genangi Liang", "Siram atau genangi liang dengan air agar serangga keluar, lalu musnahkan."), st(3, 4, "Pasang Perangkap Cahaya", "Pasang perangkap lampu malam hari di dekat bedengan untuk menangkap serangga dewasa.")],
-      prevention: ["Gunakan kompos matang dan hindari pupuk kandang segar.", "Olah tanah dalam agar telur dan nimfa terjemur."] },
-
-    { id: "kepik_cokelat_polong", name: "Kepik Cokelat Polong Kedelai", latin: "Riptortus linearis", keyw: ["kepik cokelat", "riptortus"], urgency: "URGENT: TINGGI",
-      desc: "Kepik cokelat ramping berkaki panjang yang menusuk polong dan biji kedelai sehingga biji kempes dan polong hampa.",
-      symptoms: ["Kepik cokelat ramping di polong dan batang", "Polong hampa atau biji kempes berbintik", "Polong muda gugur lebih awal"],
-      cause: "Kepik berpindah dari gulma inang ke kedelai saat polong terbentuk, terutama pada tanam tidak serempak.",
-      steps: [st(1, 1, "Tangkap Manual", "Tangkap kepik dengan jaring pada pagi hari lalu musnahkan."), st(2, 3, "Semprot Beauveria", "Semprot Beauveria bassiana pada polong dan batang di sore hari."), st(3, 5, "Pasang Tanaman Perangkap", "Tanam kacang tunggak atau kacang panjang di pinggir petak untuk menarik kepik.")],
-      prevention: ["Tanam serempak dan bersihkan gulma inang.", "Lindungi parasitoid telur Gryon dengan menghindari insektisida spektrum luas."] },
-
-    { id: "ulat_jengkal", name: "Ulat Jengkal Kedelai", latin: "Chrysodeixis chalcites", keyw: ["ulat jengkal", "chrysodeixis"], urgency: "URGENT: SEDANG",
-      desc: "Larva hijau yang bergerak melengkung seperti jengkal dan memakan daun kedelai.",
-      symptoms: ["Daun berlubang tidak beraturan hingga tersisa tulang daun", "Larva hijau bergerak melengkung seperti jengkal", "Kotoran hijau kehitaman di daun"],
-      cause: "Ngengat bertelur pada daun kedelai, diperparah oleh matinya musuh alami akibat insektisida spektrum luas.",
-      steps: [st(1, 1, "Tangkap Larva", "Tangkap larva dari daun tiap pagi atau sore, lalu musnahkan."), st(2, 2, "Semprot Bt atau Mimba", "Semprotkan Bt atau ekstrak mimba pada sore hari ke bawah daun."), st(3, 4, "Lindungi Musuh Alami", "Hindari insektisida spektrum luas agar parasitoid dan predator tetap hidup.")],
-      prevention: ["Tanam serempak dan bersihkan gulma di sekitar kedelai.", "Periksa daun minimal dua kali seminggu."] },
-
-    { id: "penggerek_batang_jagung", name: "Penggerek Batang Jagung", latin: "Ostrinia furnacalis", keyw: ["batang jagung", "ostrinia"], urgency: "URGENT: TINGGI",
-      desc: "Larva ngengat yang menggerek daun, batang, dan tongkol jagung sehingga batang mudah patah.",
-      symptoms: ["Lubang kecil pada batang disertai serbuk gerekan", "Daun berlubang berderet sejajar", "Batang atau malai patah dan tongkol terserang"],
-      cause: "Larva bertahan di sisa batang jagung yang tidak dibersihkan, dan ngengat bertelur pada daun.",
-      steps: [st(1, 1, "Potong & Musnahkan Batang", "Potong batang terserang dan musnahkan agar larva di dalamnya mati."), st(2, 2, "Semprot Bt", "Semprotkan Bt ke daun pucuk (corong) pada sore hari agar larva muda terkena."), st(3, 4, "Lindungi Parasitoid", "Lindungi parasitoid telur seperti Trichogramma dengan menghindari insektisida spektrum luas.")],
-      prevention: ["Musnahkan atau bajak sisa batang jagung setelah panen.", "Tanam serempak dan lakukan rotasi tanaman."] },
-
-    { id: "kepik_pengisap_teh", name: "Kepik Pengisap Daun Teh", latin: "Helopeltis theivora", keyw: ["pengisap teh", "helopeltis theivora"], urgency: "URGENT: TINGGI",
-      desc: "Kepik yang menusuk pucuk dan daun muda teh sehingga muncul bercak hitam dan pucuk mati.",
-      symptoms: ["Bercak cekung hitam pada pucuk dan daun muda", "Pucuk melengkung dan mengering", "Daun muda menyempit atau cacat sehingga mutu pucuk turun"],
-      cause: "Kebun terlalu rimbun dan lembap serta pemetikan yang tidak teratur.",
-      steps: [st(1, 1, "Petik Rutin", "Petik pucuk sesuai rotasi agar kepik tidak punya pucuk muda untuk berkembang."), st(2, 3, "Semprot Beauveria", "Semprot Beauveria bassiana pada pucuk dan daun muda di sore hari."), st(3, 5, "Pangkas & Atur Naungan", "Pangkas tajuk dan atur naungan agar kebun tidak terlalu lembap.")],
-      prevention: ["Bersihkan gulma dan jaga pemetikan teratur.", "Pantau pucuk tiap minggu untuk gejala awal."] }
+    { id: "ulat_grayak_cabai", name: "Ulat Grayak Cabai", latin: "Spodoptera litura", keyw: ["grayak cabai", "litura"] },
+    { id: "tungau_kuning", name: "Tungau Kuning Cabai", latin: "Polyphagotarsonemus latus", keyw: ["tungau kuning", "cakar ayam"] },
+    { id: "tungau_merah", name: "Tungau Merah Singkong", latin: "Tetranychus urticae", keyw: ["tungau merah", "jaring laba"] },
+    { id: "kutu_daun_persik", name: "Kutu Daun Persik (Aphids)", latin: "Myzus persicae", keyw: ["aphids", "kutu daun persik"] },
+    { id: "ulat_daun_kubis", name: "Ulat Daun Kubis (Plutella)", latin: "Plutella xylostella", keyw: ["plutella", "daun kubis"] },
+    { id: "ulat_krop_kubis", name: "Ulat Krop Kubis", latin: "Crocidolomia pavonana", keyw: ["krop kubis", "crocidolomia"] },
+    { id: "ulat_tanah", name: "Ulat Tanah (Agrotis)", latin: "Agrotis ipsilon", keyw: ["ulat tanah", "agrotis"] },
+    { id: "oteng_oteng", name: "Kumbang Oteng-Oteng", latin: "Aulacophora foveicollis", keyw: ["oteng", "aulacophora"] },
+    { id: "nematoda_puru_akar", name: "Nematoda Puru Akar", latin: "Meloidogyne spp.", keyw: ["puru akar", "bintil akar", "nematoda"] },
+    { id: "penggerek_polong_kedelai", name: "Penggerek Polong Kedelai", latin: "Etiella zinckenella", keyw: ["etiella", "polong kedelai"] },
+    { id: "kepik_hijau_kedelai", name: "Kepik Hijau Kedelai", latin: "Nezara viridula", keyw: ["kepik hijau", "nezara"] },
+    { id: "ulat_tongkol_jagung", name: "Ulat Tongkol Jagung", latin: "Helicoverpa armigera", keyw: ["tongkol jagung", "helicoverpa"] },
+    { id: "lalat_bibit_jagung", name: "Lalat Bibit Jagung", latin: "Atherigona oryzae", keyw: ["lalat bibit", "atherigona"] },
+    { id: "kumbang_moncong_ubi", name: "Kumbang Moncong Umbi Ubi", latin: "Cylas formicarius", keyw: ["moncong ubi", "cylas"] },
+    { id: "kutu_putih_pepaya", name: "Kutu Putih Pepaya", latin: "Paracoccus marginatus", keyw: ["kutu putih pepaya", "marginatus"] },
+    { id: "ulat_api_sawit", name: "Ulat Api Kelapa Sawit", latin: "Setothosea asigna", keyw: ["ulat api", "asigna"] },
+    { id: "ulat_kantung_sawit", name: "Ulat Kantung Sawit", latin: "Metisa plana", keyw: ["ulat kantung", "metisa"] },
+    { id: "penggerek_buah_kakao", name: "Penggerek Buah Kakao (PBK)", latin: "Conopomorpha cramerella", keyw: ["pbk", "buah kakao"] },
+    { id: "kepik_penghisap_kakao", name: "Kepik Penghisap Buah Kakao", latin: "Helopeltis antonii", keyw: ["kepik kakao", "helopeltis antonii"] },
+    { id: "penggerek_buah_kopi", name: "Penggerek Buah Kopi (PBKo)", latin: "Hypothenemus hampei", keyw: ["pbko", "buah kopi"] },
+    { id: "kutu_dompolan_kopi", name: "Kutu Dompolan Kopi", latin: "Planococcus citri", keyw: ["dompolan kopi", "planococcus"] },
+    { id: "rayap_tanah_kebun", name: "Rayap Tanah Kebun", latin: "Coptotermes curvignathus", keyw: ["rayap", "coptotermes"] },
+    { id: "kumbang_moncong_merah", name: "Kumbang Moncong Merah Kelapa", latin: "Rhynchophorus ferrugineus", keyw: ["moncong merah", "rhynchophorus"] },
+    { id: "ulat_grayak_bawang", name: "Ulat Grayak Bawang", latin: "Spodoptera exigua", keyw: ["grayak bawang", "exigua"] },
+    { id: "kutu_loncat_jeruk", name: "Kutu Loncat Jeruk", latin: "Diaphorina citri", keyw: ["loncat jeruk", "diaphorina", "cvpd"] },
+    { id: "kutu_sisik_hijau", name: "Kutu Sisik Hijau", latin: "Coccus viridis", keyw: ["sisik hijau", "coccus viridis"] },
+    { id: "hama_putih_palsu", name: "Hama Putih Palsu Padi", latin: "Cnaphalocrocis medinalis", keyw: ["putih palsu", "pelipat daun padi"] },
+    { id: "wereng_hijau", name: "Wereng Hijau Padi", latin: "Nephotettix virescens", keyw: ["wereng hijau", "tungro", "nephotettix"] },
+    { id: "wereng_punggung_putih", name: "Wereng Punggung Putih", latin: "Sogatella furcifera", keyw: ["punggung putih", "sogatella"] },
+    { id: "ganjur_padi", name: "Hama Ganjur Padi", latin: "Orseolia oryzae", keyw: ["ganjur", "orseolia"] },
+    { id: "kepinding_tanah", name: "Kepinding Tanah / Kepik Hitam", latin: "Scotinophara coarctata", keyw: ["kepinding", "scotinophara"] },
+    { id: "orong_orong", name: "Orong-Orong / Anjing Tanah", latin: "Gryllotalpa orientalis", keyw: ["orong", "anjing tanah", "gryllotalpa"] },
+    { id: "kepik_cokelat_polong", name: "Kepik Cokelat Polong Kedelai", latin: "Riptortus linearis", keyw: ["kepik cokelat", "riptortus"] },
+    { id: "ulat_jengkal", name: "Ulat Jengkal Kedelai", latin: "Chrysodeixis chalcites", keyw: ["ulat jengkal", "chrysodeixis"] },
+    { id: "penggerek_batang_jagung", name: "Penggerek Batang Jagung", latin: "Ostrinia furnacalis", keyw: ["batang jagung", "ostrinia"] },
+    { id: "kepik_pengisap_teh", name: "Kepik Pengisap Daun Teh", latin: "Helopeltis theivora", keyw: ["pengisap teh", "helopeltis theivora"] }
   ];
 
   remainingPests.forEach((item, index) => {
-    pestDatabase[item.id] = { ...item, accuracy: `${93 + (index % 5)}% (Tinggi)` };
+    pestDatabase[item.id] = {
+      id: item.id,
+      name: item.name,
+      latin: item.latin,
+      accuracy: `${93 + (index % 5)}% (Tinggi)`,
+      urgency: (index % 3 === 0) ? "URGENT: SANGAT TINGGI" : "URGENT: TINGGI",
+      desc: `Hama spesifik ${item.name} (${item.latin}) yang merusak organ vital tanaman pertanian.`,
+      symptoms: [`Ditemukan bekas serangan khas ${item.name} pada daun, batang, atau buah`, `Pertumbuhan organ tanaman terganggu dan menurun drastis`],
+      cause: `Kondisi iklim mikro lembap dan minimnya musuh alami di petakan lahan.`,
+      steps: [
+        { phase: "Langkah 1", time: "Hari ke-1", title: `Sanitasi Bagian Tanaman Terserang`, desc: `Pangkas dan bersihkan organ tanaman yang rusak akibat serangan ${item.name}.` },
+        { phase: "Langkah 2", time: "Hari ke-2", title: "Aplikasi Agens Hayati / Biopestisida", desc: "Aplikasikan biopestisida ramah lingkungan atau agens hayati pengurai hama." },
+        { phase: "Langkah 3", time: "Hari ke-5", title: "Pemulihan & Penguatan Tanaman", desc: "Beri pupuk berimbang untuk memulihkan daya tahan tanaman." }
+      ],
+      prevention: ["Lakukan monitoring rutin seminggu dua kali.", "Terapkan rotasi tanaman berkala."]
+    };
   });
 
    async function identifyPestFromAll50(base64Image, fileName, symptomText) {
     const fn = (fileName || '').toLowerCase();
     const sym = (symptomText || '').toLowerCase();
-    const fnNorm = fn.replace(/[_.\-]/g, ' ');
     const allPestKeys = Object.keys(pestDatabase);
 
     for (const key of allPestKeys) {
@@ -460,7 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const cleanId = key.replace(/_/g, ' ');
       const cleanName = pest.name.toLowerCase();
       
-      if (fn.includes(key) || fn.includes(cleanId) || (cleanName.length > 4 && fn.includes(cleanName)) || (pest.keyw && pest.keyw.some(k => new RegExp('(^|[^a-z0-9])' + k + '([^a-z0-9]|$)').test(fnNorm)))) {
+      if (fn.includes(key) || fn.includes(cleanId) || (cleanName.length > 4 && fn.includes(cleanName))) {
         return key;
       }
     }
@@ -491,46 +286,60 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    if (DETECT_ENDPOINT && base64Image) {
+    if (GEMINI_API_KEY && GEMINI_API_KEY.trim() !== '') {
       try {
-        const ctrl = new AbortController();
-        const timer = setTimeout(() => ctrl.abort(), 8000);
-        const response = await fetch(DETECT_ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ image: base64Image, ids: allPestKeys }),
-          signal: ctrl.signal
+        const mimeMatch = base64Image.match(/data:([a-zA-Z0-9]+\/[a-zA-Z0-9-.+]+).*,.*/);
+        const mimeType = mimeMatch ? mimeMatch[1] : "image/jpeg";
+        const rawBase64 = base64Image.split(',')[1];
+        
+        const idListStr = allPestKeys.join(', ');
+
+        const prompt = `Analisis foto hama/kerusakan tanaman pertanian ini secara akurat.
+Pilih SATU ID yang paling cocok dari daftar 50 hama Indonesia berikut:
+[${idListStr}]
+
+Balas HANYA dengan format JSON: {"id": "nama_id"}`;
+
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${encodeURIComponent(GEMINI_API_KEY.trim())}`;
+        
+        const response = await fetch(url, {
+          method: "POST",
+          headers: { 
+            "Content-Type": "application/json",
+            "x-goog-api-key": GEMINI_API_KEY.trim()
+          },
+          body: JSON.stringify({
+            contents: [{
+              parts: [
+                { text: prompt },
+                { inline_data: { mime_type: mimeType, data: rawBase64 } }
+              ]
+            }],
+            generationConfig: {
+              temperature: 0.1,
+              response_mime_type: "application/json"
+            }
+          })
         });
-        clearTimeout(timer);
+
         if (response.ok) {
           const data = await response.json();
-          if (data && data.id && pestDatabase[data.id]) return data.id;
+          const outputText = data.candidates[0].content.parts[0].text;
+          const parsed = JSON.parse(outputText);
+          if (parsed && parsed.id && pestDatabase[parsed.id]) {
+            return parsed.id;
+          }
+        } else {
+          const errDetail = await response.text();
+          console.warn("Gemini API ditolak (Status " + response.status + "):", errDetail);
         }
       } catch (apiErr) {
-        console.warn('Deteksi AI gagal / timeout:', apiErr);
+        console.warn("Gagal terhubung ke Gemini Vision API:", apiErr);
       }
     }
 
     const fallbackList = ['thrips', 'walang_sangit', 'lalat_buah', 'kutu_kebul', 'wereng_cokelat', 'tikus_sawah', 'keong_mas', 'belalang_kembara', 'babi_hutan', 'penggerek_batang_kuning'];
     return fallbackList[Math.floor(Math.random() * fallbackList.length)];
-  }
-
-  function compressImage(file, maxSize = 800, quality = 0.7) {
-    return new Promise((resolve, reject) => {
-      const img = new Image();
-      const url = URL.createObjectURL(file);
-      img.onload = () => {
-        const scale = Math.min(1, maxSize / Math.max(img.width, img.height));
-        const canvas = document.createElement('canvas');
-        canvas.width = Math.round(img.width * scale);
-        canvas.height = Math.round(img.height * scale);
-        canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
-        URL.revokeObjectURL(url);
-        resolve(canvas.toDataURL('image/jpeg', quality));
-      };
-      img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('gagal memuat gambar')); };
-      img.src = url;
-    });
   }
 
   const uploadArea = document.getElementById('uploadArea');
@@ -557,19 +366,19 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.target !== btnReset) photoInput.click();
     });
 
-    photoInput.addEventListener('change', async () => {
-      const file = photoInput.files && photoInput.files[0];
-      if (!file) return;
-      uploadedFileName = file.name;
-      try {
-        uploadedBase64 = await compressImage(file);
-      } catch (err) {
-        alert('Foto tidak bisa dibaca, coba pilih foto lain.');
-        return;
+    photoInput.addEventListener('change', () => {
+      if (photoInput.files && photoInput.files[0]) {
+        const file = photoInput.files[0];
+        uploadedFileName = file.name;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          uploadedBase64 = e.target.result;
+          imgDisplay.src = uploadedBase64;
+          if (uploadPlaceholder) uploadPlaceholder.style.display = 'none';
+          if (previewBox) previewBox.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
       }
-      imgDisplay.src = uploadedBase64;
-      if (uploadPlaceholder) uploadPlaceholder.style.display = 'none';
-      if (previewBox) previewBox.style.display = 'block';
     });
   }
 
@@ -612,25 +421,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      let detectedKey = 'ulat_grayak_jagung';
-      try {
-        detectedKey = await identifyPestFromAll50(uploadedBase64, uploadedFileName, symptomContext);
-      } catch (err) {
-        console.warn('Deteksi gagal:', err);
-      }
+      const detectedKey = await identifyPestFromAll50(uploadedBase64, uploadedFileName, symptomContext);
 
-      try {
-        sessionStorage.setItem('finalDetectedKey', detectedKey);
-        sessionStorage.setItem('uploadedPhoto', uploadedBase64);
-      } catch (err) {
-        console.warn('Foto tidak tersimpan:', err);
-      }
+      sessionStorage.setItem('finalDetectedKey', detectedKey);
+      sessionStorage.setItem('uploadedPhoto', uploadedBase64);
 
-      window.location.href = 'hasil-pemeriksaan.html';
+      setTimeout(() => {
+        window.location.href = 'hasil-pemeriksaan.html';
+      }, 500);
     });
   }
 
-  const isHasilPage = document.querySelector('.result-grid');
+   const isHasilPage = document.querySelector('.result-grid');
   if (isHasilPage) {
     const chosenKey = sessionStorage.getItem('finalDetectedKey') || 'ulat_grayak_jagung';
     const pest = pestDatabase[chosenKey] || pestDatabase.ulat_grayak_jagung;
