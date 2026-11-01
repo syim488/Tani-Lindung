@@ -7,7 +7,7 @@
 //   GEMINI_API_KEY sementara. WAJIB dikosongkan lagi sebelum upload ke GitHub,
 //   karena GitHub memblokir file yang memuat key.
 // =====================================================================
-const PROXY_URL = "ISI_ALAMAT_WORKER_DI_SINI";
+const PROXY_URL = "https://tanilindung-ai.asimcom087.workers.dev/";
 const GEMINI_API_KEY = "";
 
 function pakaiProxy() {
