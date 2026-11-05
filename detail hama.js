@@ -292,7 +292,7 @@ const pestDetailData = {
   // 17. Tungau Merah
   tungau_merah: {
     id: "tungau_merah", name: "Tungau Merah Singkong", latin: "Tetranychus urticae", crop: "Singkong & Terung",
-    threat: "Tingkat Ancaman: Sedang", img: "tungau merah.jpg",
+    threat: "Tingkat Ancaman: Sedang", img: "Tungau Merah.jpg",
     caption: "Foto dokumentasi: Jaring laba-laba halus di permukaan bawah daun singkong.",
     paragraphs: [
       "Tungau merah berkoloni di permukaan bawah daun dan membuat anyaman benang jaring halus.",
