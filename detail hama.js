@@ -328,7 +328,7 @@ const pestDetailData = {
   // 19. Ulat Daun Kubis
   ulat_daun_kubis: {
     id: "ulat_daun_kubis", name: "Ulat Daun Kubis (Plutella)", latin: "Plutella xylostella", crop: "Kubis",
-    threat: "Tingkat Ancaman: Tinggi", img: "Ulat Daun Kubis.jpg",
+    threat: "Tingkat Ancaman: Tinggi", img: "Ulat daun Kubis.jpg",
     caption: "Foto dokumentasi: Jendela lubang transparan pada helai daun kubis.",
     paragraphs: [
       "Larva hijau kecil pemakan epidermis daun kubis yang sangat cepat berkembang biak.",
@@ -436,7 +436,7 @@ const pestDetailData = {
   // 25. Kepik Hijau Kedelai
   kepik_hijau_kedelai: {
     id: "kepik_hijau_kedelai", name: "Kepik Hijau Kedelai", latin: "Nezara viridula", crop: "Kedelai & Padi",
-    threat: "Tingkat Ancaman: Sedang", img: "kepik hijau kedelai.jpg",
+    threat: "Tingkat Ancaman: Sedang", img: "Kepik Hijau Kedelai.jpg",
     caption: "Foto dokumentasi: Kepik perisai hijau menusuk polong kedelai.",
     paragraphs: [
       "Kepik berbentuk perisai hijau yang menusukkan stilet mulutnya ke dalam polong kedelai muda.",
@@ -472,7 +472,7 @@ const pestDetailData = {
   // 27. Lalat Bibit Jagung
   lalat_bibit_jagung: {
     id: "lalat_bibit_jagung", name: "Lalat Bibit Jagung", latin: "Atherigona oryzae", crop: "Jagung Muda",
-    threat: "Tingkat Ancaman: Sedang", img: "lalat bibit jagung.jpg",
+    threat: "Tingkat Ancaman: Sedang", img: "Lalat Bibit Jagung.jpg",
     caption: "Foto dokumentasi: Pucuk bibit jagung mengering mati akibat larva lalat bibit.",
     paragraphs: [
       "Lalat kecil yang meletakkan telur pada pelepah bibit jagung yang baru berkecambah umur 1–2 minggu.",
@@ -490,7 +490,7 @@ const pestDetailData = {
   // 28. Kumbang Moncong Umbi Ubi
   kumbang_moncong_ubi: {
     id: "kumbang_moncong_ubi", name: "Kumbang Moncong Umbi Ubi", latin: "Cylas formicarius", crop: "Ubi Jalar",
-    threat: "Tingkat Ancaman: Tinggi", img: "kumbang moncong ubi.jpg",
+    threat: "Tingkat Ancaman: Tinggi", img: "Kumbang Moncong Ubi.jpg",
     caption: "Foto dokumentasi: Lubang terowongan gerekan pada umbi ubi jalar.",
     paragraphs: [
       "Kumbang moncong yang melubangi pangkal batang dan umbi ubi jalar di dalam tanah.",
@@ -508,7 +508,7 @@ const pestDetailData = {
   // 29. Kutu Putih Pepaya
   kutu_putih_pepaya: {
     id: "kutu_putih_pepaya", name: "Kutu Putih Pepaya", latin: "Paracoccus marginatus", crop: "Pepaya",
-    threat: "Tingkat Ancaman: Tinggi", img: "kutu putih pepaya.jpg",
+    threat: "Tingkat Ancaman: Tinggi", img: "Kutu Putih Pepaya.jpg",
     caption: "Foto dokumentasi: Lapisan lilin putih menutupi buah pepaya muda.",
     paragraphs: [
       "Kutu berselaput lilin putih yang mengerubungi buah, daun, dan pucuk pohon pepaya.",
@@ -526,7 +526,7 @@ const pestDetailData = {
   // 30. Ulat Api Kelapa Sawit
   ulat_api_sawit: {
     id: "ulat_api_sawit", name: "Ulat Api Kelapa Sawit", latin: "Setothosea asigna", crop: "Kelapa Sawit",
-    threat: "Tingkat Ancaman: Sangat Tinggi", img: "ulat api sawit.jpg",
+    threat: "Tingkat Ancaman: Sangat Tinggi", img: "Ulat Api Sawit.jpg",
     caption: "Foto dokumentasi: Ulat berduri penyengat melahap helaian daun kelapa sawit.",
     paragraphs: [
       "Ulat bertubuh cerah dengan duri beracun yang melahap helai anak daun kelapa sawit secara masif.",
@@ -544,7 +544,7 @@ const pestDetailData = {
   // 31. Ulat Kantung Sawit
   ulat_kantung_sawit: {
     id: "ulat_kantung_sawit", name: "Ulat Kantung Sawit", latin: "Metisa plana", crop: "Kelapa Sawit",
-    threat: "Tingkat Ancaman: Tinggi", img: "ulat kantung sawit.jpg",
+    threat: "Tingkat Ancaman: Tinggi", img: "Ulat Kantung Sawit.jpg",
     caption: "Foto dokumentasi: Kantung kepompong kerucut menggantung di bawah daun sawit.",
     paragraphs: [
       "Larva pembuat kantung perlindungan kerucut dari potongan daun kering yang menggantung di balik daun.",
@@ -562,7 +562,7 @@ const pestDetailData = {
   // 32. Penggerek Buah Kakao
   penggerek_buah_kakao: {
     id: "penggerek_buah_kakao", name: "Penggerek Buah Kakao (PBK)", latin: "Conopomorpha cramerella", crop: "Kakao",
-    threat: "Tingkat Ancaman: Sangat Tinggi", img: "penggerek buah kakao.jpg",
+    threat: "Tingkat Ancaman: Sangat Tinggi", img: "Penggerek Buah Kakao.jpg",
     caption: "Foto dokumentasi: Buah kakao masak belang dengan biji lengket keras di dalam.",
     paragraphs: [
       "Larva ngengat kecil yang mengebor masuk ke dalam plasenta dan saluran pembuluh biji buah kakao.",
@@ -580,7 +580,7 @@ const pestDetailData = {
   // 33. Kepik Penghisap Buah Kakao
   kepik_penghisap_kakao: {
     id: "kepik_penghisap_kakao", name: "Kepik Penghisap Buah Kakao", latin: "Helopeltis antonii", crop: "Kakao & Jambu",
-    threat: "Tingkat Ancaman: Tinggi", img: "kepik penghisap kakao.jpg",
+    threat: "Tingkat Ancaman: Tinggi", img: "Kepik Penghisap Kakao.jpg",
     caption: "Foto dokumentasi: Bercak cekung cokelat kehitaman pada kulit buah kakao muda.",
     paragraphs: [
       "Kepik bertubuh ramping yang menusukkan stilet mulutnya ke kulit pentil buah kakao muda dan pucuk muda.",
@@ -598,7 +598,7 @@ const pestDetailData = {
   // 34. Penggerek Buah Kopi
   penggerek_buah_kopi: {
     id: "penggerek_buah_kopi", name: "Penggerek Buah Kopi (PBKo)", latin: "Hypothenemus hampei", crop: "Kopi",
-    threat: "Tingkat Ancaman: Sangat Tinggi", img: "penggerek buah kopi.jpg",
+    threat: "Tingkat Ancaman: Sangat Tinggi", img: "Penggerek Buah Kopi.jpg",
     caption: "Foto dokumentasi: Lubang gerek melingkar tepat di kubah pusar buah kopi.",
     paragraphs: [
       "Kumbang bubuk mikro yang melubangi ujung buah kopi dan bertelur di dalam biji kopi.",
@@ -616,7 +616,7 @@ const pestDetailData = {
   // 35. Kutu Dompolan Kopi
   kutu_dompolan_kopi: {
     id: "kutu_dompolan_kopi", name: "Kutu Dompolan Kopi", latin: "Planococcus citri", crop: "Kopi",
-    threat: "Tingkat Ancaman: Sedang", img: "kutu dompolan kopi.webp",
+    threat: "Tingkat Ancaman: Sedang", img: "Kutu Dompolan Kopi.webp",
     caption: "Foto dokumentasi: Gumpalan tepung putih menutupi dompolan bunga dan buah kopi.",
     paragraphs: [
       "Kutu berselaput lilin putih yang bersimbiosis dengan semut hitam pada dompolan bunga dan buah kopi.",
@@ -634,7 +634,7 @@ const pestDetailData = {
   // 36. Rayap Tanah Kebun
   rayap_tanah_kebun: {
     id: "rayap_tanah_kebun", name: "Rayap Tanah Kebun", latin: "Coptotermes curvignathus", crop: "Kelapa Sawit & Karet",
-    threat: "Tingkat Ancaman: Tinggi", img: "rayap tanah kebun.jpg",
+    threat: "Tingkat Ancaman: Tinggi", img: "Rayap Tanah Kebun.jpg",
     caption: "Foto dokumentasi: Terowongan tanah rayap membungkus batang pohon sawit.",
     paragraphs: [
       "Rayap kayu hidup yang membangun terowongan tanah membungkus pangkal pokok batang pohon sawit.",
@@ -652,7 +652,7 @@ const pestDetailData = {
   // 37. Kumbang Moncong Merah
   kumbang_moncong_merah: {
     id: "kumbang_moncong_merah", name: "Kumbang Moncong Merah", latin: "Rhynchophorus ferrugineus", crop: "Kelapa",
-    threat: "Tingkat Ancaman: Sangat Tinggi", img: "kumbang moncong kelapa.jpg",
+    threat: "Tingkat Ancaman: Sangat Tinggi", img: "Kumbang Moncong Kelapa.jpg",
     caption: "Foto dokumentasi: Pucuk mahkota kelapa patah terkulai mirip payung rusak.",
     paragraphs: [
       "Kumbang moncong besar yang meletakkan telur pada luka di batang atau ketiak pelepah kelapa.",
@@ -670,7 +670,7 @@ const pestDetailData = {
   // 38. Ulat Grayak Bawang
   ulat_grayak_bawang: {
     id: "ulat_grayak_bawang", name: "Ulat Grayak Bawang", latin: "Spodoptera exigua", crop: "Bawang Merah",
-    threat: "Tingkat Ancaman: Tinggi", img: "ulat grayak bawang.jpg",
+    threat: "Tingkat Ancaman: Tinggi", img: "Ulat Grayak Bawang.jpg",
     caption: "Foto dokumentasi: Ulat hijau berada di dalam rongga silinder daun bawang.",
     paragraphs: [
       "Larva ngengat yang mengebor masuk ke dalam rongga silinder daun bawang merah.",
@@ -688,7 +688,7 @@ const pestDetailData = {
   // 39. Kutu Loncat Jeruk
   kutu_loncat_jeruk: {
     id: "kutu_loncat_jeruk", name: "Kutu Loncat Jeruk", latin: "Diaphorina citri", crop: "Jeruk",
-    threat: "Tingkat Ancaman: Sangat Tinggi", img: "kutu loncat jeruk.jpg",
+    threat: "Tingkat Ancaman: Sangat Tinggi", img: "Kutu Loncat Jeruk.jpg",
     caption: "Foto dokumentasi: Kutu bertengger miring 45 derajat pada kuncup tunas jeruk.",
     paragraphs: [
       "Serangga kecil penghisap kuncup tunas muda jeruk yang bertengger membentuk sudut 45 derajat.",
@@ -706,7 +706,7 @@ const pestDetailData = {
   // 40. Kutu Sisik Hijau
   kutu_sisik_hijau: {
     id: "kutu_sisik_hijau", name: "Kutu Sisik Hijau", latin: "Coccus viridis", crop: "Kopi & Jeruk",
-    threat: "Tingkat Ancaman: Sedang", img: "kutu sisik hijau.jpg",
+    threat: "Tingkat Ancaman: Sedang", img: "Kutu Sisik Hijau.jpg",
     caption: "Foto dokumentasi: Kepingan sisik pipih hijau menempel di tulang daun kopi.",
     paragraphs: [
       "Kutu pipih hijau yang menempel rapat di tulang punggung permukaan bawah daun dan ranting muda.",
@@ -724,7 +724,7 @@ const pestDetailData = {
   // 41. Hama Putih Palsu Padi
   hama_putih_palsu: {
     id: "hama_putih_palsu", name: "Hama Putih Palsu Padi", latin: "Cnaphalocrocis medinalis", crop: "Padi",
-    threat: "Tingkat Ancaman: Sedang", img: "hama putih palsu padi.jpg",
+    threat: "Tingkat Ancaman: Sedang", img: "Hama Putih Palsu Padi.jpg",
     caption: "Foto dokumentasi: Daun padi terlipat membujur dengan selaput putih membran.",
     paragraphs: [
       "Larva ulat yang melipat helaian daun padi secara membujur menggunakan benang sutra perekat.",
@@ -742,7 +742,7 @@ const pestDetailData = {
   // 42. Wereng Hijau Padi
   wereng_hijau: {
     id: "wereng_hijau", name: "Wereng Hijau Padi", latin: "Nephotettix virescens", crop: "Padi",
-    threat: "Tingkat Ancaman: Tinggi", img: "wereng hijau padi.jpg",
+    threat: "Tingkat Ancaman: Tinggi", img: "Wereng Hijau Padi.jpg",
     caption: "Foto dokumentasi: Serangga hijau menusuk helaian daun padi pembawa virus tungro.",
     paragraphs: [
       "Serangga penusuk-penghisap daun padi yang aktif bergerak di tajuk atas daun tanaman padi.",
@@ -760,7 +760,7 @@ const pestDetailData = {
   // 43. Wereng Punggung Putih
   wereng_punggung_putih: {
     id: "wereng_punggung_putih", name: "Wereng Punggung Putih", latin: "Sogatella furcifera", crop: "Padi",
-    threat: "Tingkat Ancaman: Sedang", img: "wereng punggung putih.jpg",
+    threat: "Tingkat Ancaman: Sedang", img: "Wereng Punggung Putih.jpg",
     caption: "Foto dokumentasi: Wereng dengan garis putih membujur di bagian punggung.",
     paragraphs: [
       "Menghisap cairan pelepah daun padi terutama pada fase vegetatif awal tanaman padi.",
@@ -778,7 +778,7 @@ const pestDetailData = {
   // 44. Hama Ganjur Padi
   ganjur_padi: {
     id: "ganjur_padi", name: "Hama Ganjur Padi", latin: "Orseolia oryzae", crop: "Padi",
-    threat: "Tingkat Ancaman: Sedang", img: "ganjur padi.jpg",
+    threat: "Tingkat Ancaman: Sedang", img: "Ganjur Padi.jpg",
     caption: "Foto dokumentasi: Tunas padi tumbuh silindris menyerupai pipa daun bawang.",
     paragraphs: [
       "Larva lalat ganjur menyerang titik tumbuh tunas bibit padi muda pada musim hujan berkabut.",
@@ -796,7 +796,7 @@ const pestDetailData = {
   // 45. Kepinding Tanah Padi
   kepinding_tanah: {
     id: "kepinding_tanah", name: "Kepinding Tanah Padi", latin: "Scotinophara coarctata", crop: "Padi",
-    threat: "Tingkat Ancaman: Sedang", img: "kepinding tanah padi.jpg",
+    threat: "Tingkat Ancaman: Sedang", img: "Kepinding Tanah Padi.jpg",
     caption: "Foto dokumentasi: Kepik hitam berbau menyengat bergerombol di pangkal batang padi.",
     paragraphs: [
       "Kepik hitam yang hidup bergerombol di pangkal rumpun padi dekat permukaan tanah berlumpur.",
@@ -814,7 +814,7 @@ const pestDetailData = {
   // 46. Orong-Orong Sawah
   orong_orong: {
     id: "orong_orong", name: "Orong-Orong / Anjing Tanah", latin: "Gryllotalpa orientalis", crop: "Padi & Sayuran",
-    threat: "Tingkat Ancaman: Sedang", img: "orong orong.jpg",
+    threat: "Tingkat Ancaman: Sedang", img: "Orong Orong.jpg",
     caption: "Foto dokumentasi: Serangga penggali tanah bertungkai depan kuat memotong akar bibit.",
     paragraphs: [
       "Serangga penggali tanah yang bergerak aktif di lapisan lumpur dangkal bedengan persemaian.",
@@ -832,7 +832,7 @@ const pestDetailData = {
   // 47. Kepik Cokelat Polong Kedelai
   kepik_cokelat_polong: {
     id: "kepik_cokelat_polong", name: "Kepik Cokelat Polong", latin: "Riptortus linearis", crop: "Kedelai",
-    threat: "Tingkat Ancaman: Sedang", img: "kepik cokelat polong.jpg",
+    threat: "Tingkat Ancaman: Sedang", img: "Kepik Cokelat Polong.jpg",
     caption: "Foto dokumentasi: Kepik cokelat bertungkai belakang besar menusuk polong kedelai.",
     paragraphs: [
       "Kepik bertubuh ramping dengan garis samping kuning yang menusukkan stilet ke dinding polong kedelai.",
@@ -850,7 +850,7 @@ const pestDetailData = {
   // 48. Ulat Jengkal Kedelai
   ulat_jengkal: {
     id: "ulat_jengkal", name: "Ulat Jengkal Kedelai", latin: "Chrysodeixis chalcites", crop: "Kedelai & Tomat",
-    threat: "Tingkat Ancaman: Sedang", img: "ulat jengkal kedelai.jpg",
+    threat: "Tingkat Ancaman: Sedang", img: "Ulat Jengkal Kedelai.jpg",
     caption: "Foto dokumentasi: Ulat hijau melengkung seperti jengkal tangan memakan daun.",
     paragraphs: [
       "Larva ngengat yang memiliki cara berjalan khas melengkungkan tubuhnya menyerupai jengkal tangan.",
@@ -868,7 +868,7 @@ const pestDetailData = {
   // 49. Penggerek Batang Jagung
   penggerek_batang_jagung: {
     id: "penggerek_batang_jagung", name: "Penggerek Batang Jagung", latin: "Ostrinia furnacalis", crop: "Jagung",
-    threat: "Tingkat Ancaman: Tinggi", img: "penggerek batang jagung.jpg",
+    threat: "Tingkat Ancaman: Tinggi", img: "Penggerek Batang Jagung.jpg",
     caption: "Foto dokumentasi: Batang jagung berlubang gerek dan mudah patah tertiup angin.",
     paragraphs: [
       "Larva ngengat yang mengebor masuk ke dalam ruas batang tanaman jagung yang sedang tumbuh.",
@@ -886,7 +886,7 @@ const pestDetailData = {
   // 50. Kepik Pengisap Daun Teh
   kepik_pengisap_teh: {
     id: "kepik_pengisap_teh", name: "Kepik Pengisap Daun Teh", latin: "Helopeltis theivora", crop: "Teh",
-    threat: "Tingkat Ancaman: Sedang", img: "kepik pengisap teh.jpg",
+    threat: "Tingkat Ancaman: Sedang", img: "Kepik Pengisap Teh.jpg",
     caption: "Foto dokumentasi: Pucuk peko daun teh mengering kecokelatan mirip terbakar.",
     paragraphs: [
       "Kepik ramping yang menusukkan stilet mulutnya ke pucuk peko daun teh muda yang baru bertunas.",
